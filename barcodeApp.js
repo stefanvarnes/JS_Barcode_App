@@ -129,6 +129,3 @@ console.log('Bin-Output: ', generateBarcode('0', '51000', '01251'));
 console.log('Bin-Output: ', generateBarcode('6', '14141', '00003'));
 console.log('Bin-Output: ', generateBarcode('0', '13409', '51519'));
 console.log('Bin-Output: ', generateBarcode('3', '11111', '11111'));
-
-//Barcode-type: 0 = Standard. 2 = Weighed Items. 3 = Pharmacy. 5 = Coupons.
-
