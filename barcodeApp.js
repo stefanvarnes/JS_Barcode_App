@@ -12,7 +12,7 @@
         7 = normal UPC code 
         8 = reserved
         9 = reserved 
-    generateBarcode(Barcode type (0,2,3,5)(enter as number)), 'Manufacturer code(enter as string)', 'Product code (enter as string)')
+    generateBarcode(Barcode type (0,2,3,5)(enter as number)), 'Manufacturer code(enter as string) 5 digits', 'Product code (enter as string)') 5 digits
     generateBarcode(0, '51000', '01251')
 */
 // Barcode number list 0,1,2,3,4,5,6,7,8,9 https://www.cut-the-knot.org/do_you_know/BarcodeEncoding.shtml
