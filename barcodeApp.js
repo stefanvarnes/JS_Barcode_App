@@ -61,7 +61,7 @@ function generateBarcode(type, manufacturerID, productID) {
     let tid = type;
     // Barcode Check Digit generator. i.e: https://azaleabarcodes.com/white-papers/upc-barcode-check-digit/
     //checkDigit = (type + manufacturerID.toString() + productID.toString()).toString();
-    checkDigit = (type + manufacturerID.toString() + productID.toString()).toString();
+    checkDigit = (type.toString() + manufacturerID.toString() + productID.toString()).toString();
     checkDigit = checkDigit.split('');
     for (let i = 0; i < checkDigit.length; i++) {
         if ((i % 2) === 0) { checkDigit[i] = checkDigit[i] * 3 }
@@ -76,16 +76,10 @@ function generateBarcode(type, manufacturerID, productID) {
 
 
     // manufacturerID -> toString, split into Array, mapped to Barcode numbers, joined.
-    manufacturerID = manufacturerID.toString();
-    manufacturerID = manufacturerID.split('');
-    manufacturerID = manufacturerID.map((e, i) => generateBarcodeArrayL(Number(e)));
-    manufacturerID = manufacturerID.join('');
+    manufacturerID = manufacturerID.toString().split('').map((e, i) => generateBarcodeArrayL(Number(e))).join('');
 
     // productID -> toString, split into Array, mapped to Barcode numbers, joined.
-    productID = productID.toString();
-    productID = productID.split('');
-    productID = productID.map((e, i) => generateBarcodeArrayR(Number(e)));
-    productID = productID.join('');
+    productID = productID.toString().split('').map((e, i) => generateBarcodeArrayR(Number(e))).join('');
 
     drawBarcode(leftGuard + barcodeLeft[type] + manufacturerID + centerGurad + productID + generateBarcodeArrayR(checkDigitSum) + rightGuard, mid, pid, tid, checkDigitSum);
     return leftGuard + barcodeLeft[type] + manufacturerID + centerGurad + productID + generateBarcodeArrayR(checkDigitSum) + rightGuard;
